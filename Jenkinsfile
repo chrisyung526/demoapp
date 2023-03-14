@@ -5,7 +5,7 @@ node {
   stage('SonarQube Analysis') {
     def mvn = tool 'mvn';
     withSonarQubeEnv() {
-      sh "${mvn}/bin/mvn clean install sonar:sonar -Dserver.port=8090 -Dsonar.projectKey=id-gate_fido_management_ap_AYa1GJfxWHKZrROAl57P"
+      sh "${mvn}/bin/mvn clean install sonar:sonar -Dserver.port=8090 -Dsonar.projectKey=demoapp"
     }
   }
 
