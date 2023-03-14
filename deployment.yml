@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: managementap
+  labels:
+    app: managementap
+spec:
+  selector:
+    matchLabels:
+      app: managementap
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: managementap
+    spec:
+      containers:
+        - name: managementap
+          image: 123860609515.dkr.ecr.ap-east-1.amazonaws.com/managementap:latest
+          volumeMounts:
+            - name: config-volume
+              mountPath: /config/ManagementAP
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          imagePullPolicy: Always
+      volumes:
+        - name: config-volume
+          configMap:
+            name: dummy-config
