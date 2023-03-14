@@ -4,7 +4,7 @@ node {
   }
   stage('SonarQube Analysis') {
     def mvn = tool 'mvn';
-    withSonarQubeEnv() {
+    withSonarQubeEnv('demoapp sonar') { {
       sh "${mvn}/bin/mvn clean install sonar:sonar -Dserver.port=8090 -Dsonar.projectKey=demoapp"
     }
   }
