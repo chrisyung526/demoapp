@@ -19,6 +19,11 @@ spec:
       containers:
         - name: demoapp
           image: 123860609515.dkr.ecr.ap-east-1.amazonaws.com/demoapp:latest
+          env:
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
           resources:
             requests:
               memory: "256Mi"
