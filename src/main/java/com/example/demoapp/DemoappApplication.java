@@ -21,19 +21,12 @@ import java.util.Map;
 @RefreshScope
 public class DemoappApplication {
 
-	@Value("${foo.bar}")
-	private String foobar;
+
 	public static void main(String[] args) {
 		SpringApplication.run(DemoappApplication.class, args);
 	}
 
-	@RequestMapping("/demo")
-	public Map<String, String> demo() {
 
-		HashMap<String, String> map = new HashMap<>();
-		map.put("foo.bar",foobar);
-		return map;
-	}
 
 }
 
