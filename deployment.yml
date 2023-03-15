@@ -20,7 +20,7 @@ spec:
         - name: demoapp
           image: 123860609515.dkr.ecr.ap-east-1.amazonaws.com/demoapp:latest
           env:
-            - name: POD_IP
+            - name: eureka.instance.hostname
               valueFrom:
                 fieldRef:
                   fieldPath: status.podIP
