@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: demoapp
-  replicas: 1
+  replicas: 2
   strategy:
     type: RollingUpdate
   template:
@@ -19,6 +19,13 @@ spec:
       containers:
         - name: demoapp
           image: 123860609515.dkr.ecr.ap-east-1.amazonaws.com/demoapp:latest
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
           ports:
             - containerPort: 8080
               protocol: TCP
